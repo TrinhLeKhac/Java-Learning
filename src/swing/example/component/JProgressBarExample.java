@@ -2,11 +2,11 @@ package swing.example.component;
 
 import javax.swing.*;
 
-class ProgressBarExample extends JFrame{
+class JProgressBarExample extends JFrame{
     JProgressBar progress;
     int i = 0;
 
-    ProgressBarExample(){
+    JProgressBarExample(){
 
         progress = new JProgressBar(0, 2000);
         progress.setBounds(40, 40, 160, 30);
@@ -36,7 +36,7 @@ class ProgressBarExample extends JFrame{
     }
 
     public static void main(String[] args) {
-        ProgressBarExample bar = new ProgressBarExample();
+        JProgressBarExample bar = new JProgressBarExample();
         bar.setVisible(true);
         bar.iterate();
     }

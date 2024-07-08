@@ -2,8 +2,8 @@ package swing.example.component;
 
 import javax.swing.*;
 
-public class SliderExample extends JFrame {
-    public SliderExample() {
+public class JSliderExample extends JFrame {
+    public JSliderExample() {
         JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
         slider.setMinorTickSpacing(2);
         slider.setMajorTickSpacing(10);
@@ -25,7 +25,7 @@ public class SliderExample extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public static void main(String[] s) {
-        SliderExample frame = new SliderExample();
+        JSliderExample frame = new JSliderExample();
         frame.pack();  // shrink or expand component to fix
         frame.setVisible(true);
     }
