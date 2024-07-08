@@ -6,13 +6,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FileChooserExample extends JFrame implements ActionListener {
+public class JFileChooserExample extends JFrame implements ActionListener {
     JLabel label;
     JFileChooser chooser;
     JButton openButton;
     JButton saveButton;
 
-    public FileChooserExample() {
+    public JFileChooserExample() {
 
         openButton = new JButton("Open Dialog");
         openButton.addActionListener(this);
@@ -53,6 +53,6 @@ public class FileChooserExample extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new FileChooserExample();
+        new JFileChooserExample();
     }
 }
