@@ -21,6 +21,7 @@ package collection;
 
 import java.io.*;
 import java.nio.file.NoSuchFileException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.*;
 
 class Student implements Serializable{
@@ -79,8 +80,16 @@ public class ArrayListExample {
 
         System.out.println("----------------Example 6: Traversing ArrayList through listIterator-----------------------");
         ListIterator<String> listIter = list1.listIterator(list1.size());
+
+        // forward
         while (listIter.hasNext()) {
             System.out.println(listIter.next());
+        }
+        System.out.println('\n');
+
+        // backward
+        while (listIter.hasPrevious()) {
+            System.out.println(listIter.previous());
         }
         System.out.println('\n');
 
@@ -139,5 +148,25 @@ public class ArrayListExample {
         } catch (Exception exc) {
             System.out.println(exc);
         }
+        System.out.println('\n');
+
+        System.out.println("----------------Example 12: Convert Array to ArrayList AND ArrayList to Array-----------------------");
+        List<String> fruitList = new ArrayList<>();
+        fruitList.add("Mango");
+        fruitList.add("Banana");
+        fruitList.add("Apple");
+        fruitList.add("Strawberry");
+
+        // Converting ArrayList to Array
+        String[] fruitArray = fruitList.toArray(new String[0]);
+
+        // Converting Array to ArrayList
+        List<String> fruitList2 = new ArrayList<>(List.of(fruitArray));
+
+        System.out.println(fruitList);
+        System.out.println(Arrays.toString(fruitArray));
+        System.out.println(fruitList2);
+
+
     }
 }
