@@ -47,7 +47,7 @@ class OptionalExampleV2 {
 
         // If value is present, it returns an Optional otherwise returns an empty Optional
         System.out.println("Filtered value: " + value.filter(s -> s.equals("Abc")));
-        System.out.println("Filtered value: " + value.filter((s)->s.equals("JAVA OPTIONAL CLASS EXAMPLE")));
+        System.out.println("Filtered value: " + value.filter(s -> s.equals("JAVA OPTIONAL CLASS EXAMPLE")));
 
         // It returns value of an Optional. if value is not present, it throws an NoSuchElementException
         System.out.println("Getting value: " + value.get());
