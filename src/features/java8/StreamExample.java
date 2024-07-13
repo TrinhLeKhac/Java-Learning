@@ -95,7 +95,14 @@ public class StreamExample {
         System.out.println(mapProduct);
         System.out.println('\n');
 
-        System.out.println("----------------Example 3: Iterate element-----------------------");
+        System.out.println("----------------Example 5: Collectors-----------------------");
+        Double average = productList.stream().collect(Collectors.averagingDouble(p -> p.price));
+        System.out.println("The average price of product is: " + average);
+
+        Long count = productList.stream().collect(Collectors.counting());
+        System.out.println("Total products: " + count);
+
+        System.out.println("----------------Example 5: Iterate element-----------------------");
         Stream.iterate(1, e -> e + 1).filter(e -> e % 5 == 0).limit(5).forEach(System.out::println);
     }
 }
