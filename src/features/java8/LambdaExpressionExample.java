@@ -10,12 +10,17 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
+@FunctionalInterface
 interface Drawable {  // 1 method interface
     void draw();
 }
+
+@FunctionalInterface
 interface Addable {
     int add(int a, int b);
 }
+
+@FunctionalInterface
 interface Sayable {
     String say(String message);
 }

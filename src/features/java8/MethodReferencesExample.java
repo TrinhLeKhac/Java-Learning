@@ -18,10 +18,13 @@ class Arithmetic {
         return a + b;
     }
 }
+
+@FunctionalInterface
 interface SaySomething {
     void say();
 }
 
+@FunctionalInterface
 interface Messageable {
     Message getMessage(String msg);
 }
