@@ -62,6 +62,7 @@ package collection;
 // NavigableMap<K, V> descendingMap()
 
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class MapExample {
@@ -120,5 +121,62 @@ public class MapExample {
         System.out.println("headMap: " + treeMap.headMap(102, true));
         System.out.println("tailMap: " + treeMap.tailMap(102, true));
         System.out.println('\n');
+
+        System.out.println("----------------Example 6-----------------------");
+        List<String> stringExample6 = List.of("one", "two", "three", "four", "five", "six", "seven");
+
+        // Method 1
+        Map<Integer, ArrayList<String>> mapExample61 = new HashMap<>();
+        for (String s: stringExample6) {
+            int length = s.length();
+            if (!mapExample61.containsKey(length)) {
+                mapExample61.put(length, new ArrayList<>());
+            }
+            mapExample61.get(length).add(s.toUpperCase());
+        }
+        // Method 2
+        Map<Integer, ArrayList<String>> mapExample62 = new HashMap<>();
+        for (String s: stringExample6) {
+            int length = s.length();
+            mapExample62.putIfAbsent(length, new ArrayList<>());
+            mapExample62.get(length).add(s.toUpperCase());
+        }
+        // Method 3
+        Map<Integer, ArrayList<String>> mapExample63 = new HashMap<>();
+        for (String s: stringExample6) {
+            int length = s.length();
+            mapExample63.computeIfAbsent(length, ArrayList::new).add(s.toUpperCase());  // (key, value), value is a mutable container
+        }
+
+        for(Map.Entry<Integer, ArrayList<String>> entry: mapExample61.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+        System.out.println("-------------------------------------------");
+        for(Map.Entry<Integer, ArrayList<String>> entry: mapExample62.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+        System.out.println("-------------------------------------------");
+        for(Map.Entry<Integer, ArrayList<String>> entry: mapExample63.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+        System.out.println("-------------------------------------------");
+
+        System.out.println("----------------Example 7: ReplaceAll methods-----------------------");
+        Map<Integer, String> mapExample7 = new HashMap<>();
+        mapExample7.put(1, "one");
+        mapExample7.put(2, "two");
+        mapExample7.put(3, "three");
+        mapExample7.replaceAll((key, value) -> value.toUpperCase());
+        mapExample7.forEach((key, value) -> System.out.println(key + ": " + value));
+
+        System.out.println("----------------Example 8: Merge methods-----------------------");
+        List<String> stringExample8 = List.of("one", "two", "three", "four", "five", "six", "seven");
+        Map<Integer, String> mapExample8 = new HashMap<>();
+        for (String s: stringExample8) {
+            int length = s.length();
+            mapExample8.merge(length, s, (old_s, new_s) -> old_s + ", " + new_s);
+        }
+        mapExample8.forEach((key, value) -> System.out.println(key + ": " + value));
+
     }
 }
